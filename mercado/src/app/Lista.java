@@ -65,7 +65,41 @@ public class Lista {
         this.qtd++;
     }//--------------------------------------------------------INSERT AT LAST POSITION
 
-    
+    public boolean removeItem(int id)
+    {
+        No current = this.prim;
+        No preview = null;
+        if (isEmpity()) {
+            return null;
+        } else {
+            while (current != null && (! current.getItem().equals(id))) {
+                preview = current;
+                current = current.getProx();
+            }
+            if (current == this.prim) {
+                if (prim == ult) {
+                    this.ult = null;
+                }
+                this.prim = this.prim.getProx();
+            } else {
+                if(current == this.ult)
+                {
+                    this.ult = preview;
+                }
+                preview.setProx(current.getProx());
+                
+                
+            }
+            this.qtd--;
+            return true;
+        }
+    }//-----------------------------------------------------------------------REMOVE NODE
+
+
+   
+
+
+
 
 
     
