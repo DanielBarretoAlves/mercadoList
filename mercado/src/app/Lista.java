@@ -20,7 +20,7 @@ public class Lista {
         return prim;
     }
 
-    public void setPrim(No prim) {
+    public void setPrim(final No prim) {
         this.prim = prim;
     }
 
@@ -28,7 +28,7 @@ public class Lista {
         return ult;
     }
 
-    public void setUlt(No ult) {
+    public void setUlt(final No ult) {
         this.ult = ult;
     }
 
@@ -36,13 +36,13 @@ public class Lista {
         return qtd;
     }
 
-    public void setQtd(int qtd) {
+    public void setQtd(final int qtd) {
         this.qtd = qtd;
     }//----------------------------------------------GETS AND SETTERS
 
     public void insertFirst(Produto item)
     {
-        No novoNO = new No(item);
+         No novoNO = new No(item);
         if (this.isEmpity()) {
             this.ult = novoNO;
         }
@@ -54,8 +54,8 @@ public class Lista {
 
     public boolean isEmpity(){return(this.prim == null);}//----IS EMPTY
 
-    public void insertLast(Produto item) {
-        No novoNo = No(item);
+    public void insertLast(final Produto item) {
+         No novoNo = No(item);
         if (this.isEmpity()) {
             this.prim = novoNo;
         } else {
@@ -65,14 +65,14 @@ public class Lista {
         this.qtd++;
     }//--------------------------------------------------------INSERT AT LAST POSITION
 
-    public boolean removeItem(int id)
+    public boolean removeItem(final int id)
     {
         No current = this.prim;
         No preview = null;
         if (isEmpity()) {
             return null;
         } else {
-            while (current != null && (! current.getItem().equals(id))) {
+            while (current != null && (current.getItem().getId() != id)) {
                 preview = current;
                 current = current.getProx();
             }
@@ -94,6 +94,28 @@ public class Lista {
             return true;
         }
     }//-----------------------------------------------------------------------REMOVE NODE
+
+    public String search(int id)
+    {
+         String msg="";
+        final No current = this.prim;
+        while (current != null && (current.getItem().getId() != id)) {
+            current = current.getProx();
+            
+        }
+    }
+
+    // public String pesquisarNo(String nome)
+    // {
+    //     String msg ="";
+    //     No atual = this.prim;
+    //     while ((atual != null) && (!atual.getP().getNome().equals(nome))) {
+    //         atual = atual.getProx();
+    //     }
+    //     return msg = "Nome: " + atual.getP().getNome() + "\n"+
+    //                 "Sexo: " + atual.getP().getSexo() + "\n"+
+    //                 "Idade: " + atual.getP().getIdade();
+    // }//-----------------------------------------------------------Pesquisar NO
 
 
    
