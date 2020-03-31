@@ -9,8 +9,7 @@ public class Lista {
     private No ult;
     private int qtd;
 
-    public Lista()
-    {
+    public Lista() {
         this.prim = null;
         this.ult = null;
         this.qtd = 0;
@@ -20,7 +19,7 @@ public class Lista {
         return prim;
     }
 
-    public void setPrim(final No prim) {
+    public void setPrim(No prim) {
         this.prim = prim;
     }
 
@@ -28,7 +27,7 @@ public class Lista {
         return ult;
     }
 
-    public void setUlt(final No ult) {
+    public void setUlt(No ult) {
         this.ult = ult;
     }
 
@@ -36,13 +35,12 @@ public class Lista {
         return qtd;
     }
 
-    public void setQtd(final int qtd) {
+    public void setQtd(int qtd) {
         this.qtd = qtd;
-    }//----------------------------------------------GETS AND SETTERS
+    }// ----------------------------------------------GETS AND SETTERS
 
-    public void insertFirst(Produto item)
-    {
-         No novoNO = new No(item);
+    public void insertFirst(Produto item) {
+        No novoNO = new No(item);
         if (this.isEmpity()) {
             this.ult = novoNO;
         }
@@ -50,12 +48,14 @@ public class Lista {
         this.prim = novoNO;
         this.qtd++;
 
-    }//--------------------------------------------------------INSERT AT START NODE
+    }// --------------------------------------------------------INSERT AT START NODE
 
-    public boolean isEmpity(){return(this.prim == null);}//----IS EMPTY
+    public boolean isEmpity() {
+        return (this.prim == null);
+    }// ----IS EMPTY
 
-    public void insertLast(final Produto item) {
-         No novoNo = No(item);
+    public void insertLast(Produto item) {
+        No novoNo = No(item);
         if (this.isEmpity()) {
             this.prim = novoNo;
         } else {
@@ -63,10 +63,10 @@ public class Lista {
         }
         this.ult = novoNo;
         this.qtd++;
-    }//--------------------------------------------------------INSERT AT LAST POSITION
+    }// --------------------------------------------------------INSERT AT LAST
+     // POSITION
 
-    public boolean removeItem(final int id)
-    {
+    public boolean removeItem(int id) {
         No current = this.prim;
         No preview = null;
         if (isEmpity()) {
@@ -82,51 +82,37 @@ public class Lista {
                 }
                 this.prim = this.prim.getProx();
             } else {
-                if(current == this.ult)
-                {
+                if (current == this.ult) {
                     this.ult = preview;
                 }
                 preview.setProx(current.getProx());
-                
-                
+
             }
             this.qtd--;
             return true;
         }
-    }//-----------------------------------------------------------------------REMOVE NODE
+    }// -----------------------------------------------------------------------REMOVE
+     // NODE
 
-    public String search(int id)
-    {
-         String msg="";
-        final No current = this.prim;
+    public String search(int id) {
+        String msg = "";
+        No current = this.prim;
         while (current != null && (current.getItem().getId() != id)) {
             current = current.getProx();
-            
+
         }
     }
 
     // public String pesquisarNo(String nome)
     // {
-    //     String msg ="";
-    //     No atual = this.prim;
-    //     while ((atual != null) && (!atual.getP().getNome().equals(nome))) {
-    //         atual = atual.getProx();
-    //     }
-    //     return msg = "Nome: " + atual.getP().getNome() + "\n"+
-    //                 "Sexo: " + atual.getP().getSexo() + "\n"+
-    //                 "Idade: " + atual.getP().getIdade();
+    // String msg ="";
+    // No atual = this.prim;
+    // while ((atual != null) && (!atual.getP().getNome().equals(nome))) {
+    // atual = atual.getProx();
+    // }
+    // return msg = "Nome: " + atual.getP().getNome() + "\n"+
+    // "Sexo: " + atual.getP().getSexo() + "\n"+
+    // "Idade: " + atual.getP().getIdade();
     // }//-----------------------------------------------------------Pesquisar NO
-
-
-   
-
-
-
-
-
-    
-
-
-
 
 }
