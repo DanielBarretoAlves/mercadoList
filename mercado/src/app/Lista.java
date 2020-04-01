@@ -101,6 +101,7 @@ public class Lista {
             current = current.getProx();
 
         }
+        return msg = "Produto: " + current.getItem().getDescription();
     }
 
     // public String pesquisarNo(String nome)
